@@ -1,7 +1,7 @@
 import React from 'react'
 import Breadcrumb from '../../layout/Breadcrumb'
 
-const About = () => {
+const Blog = () => {
   return (
     <>
     <Breadcrumb/>
@@ -9,4 +9,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Blog

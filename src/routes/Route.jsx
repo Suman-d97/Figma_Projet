@@ -4,6 +4,9 @@ import Home from "../pages/home/Home";
 import About from "../pages/about/About";
 import Menu from "../pages/Menu";
 import Chefsection from "../components/Chefsection";
+import Blog from "../pages/blog/Blog";
+import Contact from "../pages/contact/Contact";
+
 
 const Route = createBrowserRouter([
   {
@@ -19,12 +22,20 @@ const Route = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/menu",
+        path: "menu",
         element : <Menu/>
       },
       {
-        path: "/chef",
+        path: "chef",
         element: <Chefsection/>
+      },
+      {
+        path: "blog",
+        element: <Blog/>
+      },
+      {
+        path: "contact",
+        element: <Contact/>
       }
     ],
   },

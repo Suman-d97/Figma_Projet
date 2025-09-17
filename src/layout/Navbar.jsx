@@ -14,11 +14,11 @@ const Navbar = () => {
   const navigate = useNavigate()
 const pages = [
   { name: "Home", path: "/" },
-  { name: "Menu", path: "/menu" },
-  { name: "About Us", path: "/about" },
-  { name: "Chef", path: "/chef" },
-  { name: "Blog", path: "/blog" },
-  { name: "Contact", path: "/contact" },
+  { name: "Menu", path: "menu" },
+  { name: "About Us", path: "about" },
+  { name: "Chef", path: "chef" },
+  { name: "Blog", path: "blog" },
+  { name: "Contact", path: "contact" },
 ];
 
 const [open, setOpen] = useState(false);
