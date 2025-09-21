@@ -106,11 +106,12 @@ const [open, setOpen] = useState(false);
                 transform: "rotate(0deg)",
                 opacity: 1,
               }}
+              onClick={() => navigate("/login/cart")}
             />
+          </IconButton>
             <Button color="primary" variant="contained" onClick={handleOpen}>
               LOGIN
             </Button>
-          </IconButton>
         </div>
       </header>
       <Modal

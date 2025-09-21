@@ -4,9 +4,10 @@ import Home from "../pages/home/Home";
 import About from "../pages/about/About";
 import Menu from "../pages/Menu";
 import Chefsection from "../components/Chefsection";
-import Blog from "../pages/blog/Blog";
 import Contact from "../pages/contact/Contact";
-
+import Blogsec from "../pages/Blogsec";
+import Protectedroute from "../layout/Protectedroute";
+import Cart from "../pages/Cart";
 
 const Route = createBrowserRouter([
   {
@@ -23,20 +24,34 @@ const Route = createBrowserRouter([
       },
       {
         path: "menu",
-        element : <Menu/>
+        element: <Menu />,
       },
       {
         path: "chef",
-        element: <Chefsection/>
+        element: <Chefsection />,
       },
       {
         path: "blog",
-        element: <Blog/>
+        element: <Blogsec />,
       },
       {
         path: "contact",
-        element: <Contact/>
-      }
+        element: <Contact />,
+      },
+      // {
+      //   path: "cart",
+      //   element: <Cart/>
+      // },
+      {
+        path: "/login",
+        element: <Protectedroute />,
+        children: [
+          {
+            path: "cart",
+            element: <Cart />,
+          },
+        ],
+      },
     ],
   },
 ]);

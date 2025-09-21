@@ -7,10 +7,10 @@ const Theme = createTheme({
     },
     text: {
       primary: "#ffffff",
-      secondary: "#D68240",
+      secondary: "#40d6c4ff",
     },
     primary: {
-      main: "#D68240",
+      main: "#40d6c4ff",
     },
   },
   typography: {
