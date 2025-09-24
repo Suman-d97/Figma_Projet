@@ -10,7 +10,12 @@ import {
 import CancelTwoToneIcon from "@mui/icons-material/CancelTwoTone";
 import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
 import RemoveTwoToneIcon from "@mui/icons-material/RemoveTwoTone";
+import CartContext from "../hooks/context/cart/CreatecartContext";
+import { useContext } from "react";
+
+
 const Cartcard = ({ item }) => {
+  const {removeCart}= useContext(CartContext)
   return (
     <>
       <Container sx={{ py: 4, width: "35.75rem" }}>
@@ -27,7 +32,9 @@ const Cartcard = ({ item }) => {
             color: "#fff",
           }}
         >
-          <IconButton sx={{ alignSelf: "flex-start", color: "#fff" }}>
+          <IconButton
+          onClick={()=>removeCart(item.id)}
+           sx={{ alignSelf: "flex-start", color: "#fff" }}>
             <CancelTwoToneIcon />
           </IconButton>
           <CardMedia

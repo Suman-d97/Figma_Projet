@@ -8,6 +8,43 @@
       "name": "abc",
       "email": "abc@gmail.com",
       "password": "@Sd123456"
+    },
+    {
+      "id": "9d8c",
+      "name": "Suman Das",
+      "email": "sumandass1811@gmail.com",
+      "password": "@Sd123456"
     }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "image": "/src/assets/Image/Menuitem-1.png",
+      "title": "Fried Chicken",
+      "rating": 2,
+      "price": "250",
+      "description": "Lorem ipsum is the simply dummy text of the printing and typesetting industry"
+    },
+    {
+      "id": "4",
+      "image": "/src/assets/Image/Menuitem-4.png",
+      "title": "Delhi style Chole",
+      "rating": 4,
+      "price": "156",
+      "description": "Lorem ipsum is the simply dummy text of the printing and typesetting industry"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "9709"
+    },
+    {
+      "id": "1",
+      "image": "/src/assets/menu1.png",
+      "title": "Chicken",
+      "rating": 2,
+      "price": "Rs250"
+    }
+    
   ]
 }

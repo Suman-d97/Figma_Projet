@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Typography,
@@ -13,6 +13,7 @@ import cart1 from "../../assets/Cart/Cart-Image-1.png";
 import cart2 from "../../assets/Cart/Cart-Image-2.png";
 import cart3 from "../../assets/Cart/Cart-Image-3.png";
 import Cartcard from "../../components/Cartcard";
+import CartContext from "../../hooks/context/cart/CreatecartContext";
 
 
 const initialData = [
@@ -43,7 +44,9 @@ const initialData = [
 ];
 
 const Orderlist = () => {
+  const {cart} = useContext(CartContext)
   return (
+
     <Paper sx={{ backgroundColor: "rgb(10,19,22)" }}>
       <Container
         sx={{
@@ -54,7 +57,7 @@ const Orderlist = () => {
       >
         {/* Cart Items */}
         <Container sx={{ py: 4, width: "35.75rem" }}>
-          {initialData.map((card) => (
+          {cart.map((card) => (
             <Cartcard key={card.id} item={card} />
           ))}
         </Container>

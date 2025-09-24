@@ -1,6 +1,6 @@
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"; 
 import {
   Box,
@@ -20,6 +20,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import LoginImage from "../../assets/Login_image.png";
 import Signup from '../Signup';
+import { toast } from "sonner";
+import Cookies from "js-cookie";
+import Api from "../../api/Api";
 
 
 const StyledTextField = (props) => (
@@ -53,19 +56,69 @@ const StyledTextField = (props) => (
 );
 
 const Login = ({ handleClose }) => {
-    const [showSignup, setShowSignup] = useState(false);
+   const [showSignup, setShowSignup] = useState(false);
+  const [userList, setUserList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // 2. Initialize the hook
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   // 3. Create a submit handler
-  const onSubmit = (data) => {
-    console.log("Login Data:", data);
-    // You would typically handle your login API call here
+useEffect(() => {
+    const fetchdata = async () => {
+      try {
+        const response = await Api.get(`/users`);
+        console.log(response?.data);
+        setUserList(response?.data);
+      } catch (error) {
+        console.log(error);
+        toast.error("Failed to connect to server!");
+      }
+    };
+
+    fetchdata();
+  }, []);
+const onSubmit = async (data) => {
+    try {
+      if (userList?.length === 0) {
+        toast.error("Failed to connect server!");
+        return;
+      }
+
+      const matchEmailUser = userList?.find(
+        (u) => u?.email?.toLowerCase() === data?.email?.toLowerCase()
+      );
+      setLoading(true);
+
+      setTimeout(() => {
+        if (matchEmailUser) {
+          if (matchEmailUser.password === data.password) {
+            toast.success("Login Successful!");
+            Cookies.set("loginData", JSON.stringify(data));
+            reset();
+            handleClose();
+          } else {
+            toast.error("password is incorrect");
+          }
+        } else {
+          toast.error("Invalid Email or Password!");
+        }
+        // console.log(matchEmailUser);
+      }, 1000);
+    } catch (error) {
+      toast.error("An error occured during login");
+      console.log(error);
+      // setLoading(false);
+    } finally {
+      // setLoading(false);
+      reset();
+      handleClose();
+    }
   };
 
   if (showSignup) {
